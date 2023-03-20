@@ -71,9 +71,9 @@ contract Attacker is AccessControl, IERC777Recipient {
 
     	depth++;
     	emit Recurse(depth);
-
+    	emit Recurse(depth);
     	// Call the deposit() function of the Bank contract again
-    	bank.deposit{value: 1 ether}();
+    	//bank.deposit{value: 1 ether}();
 
     	depth--;
 
